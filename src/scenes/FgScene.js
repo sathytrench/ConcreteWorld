@@ -16,11 +16,13 @@ export default class FgScene extends Phaser.Scene {
       this.physics.pause();
       player.setTint(0xff0000);
       this.player.anims.play('turn');
+      this.deathSound.play();
       this.gameOver = true;
     }
 
     collectFlower (player, flower){
         flower.disableBody(true, true);
+        this.collectSound.play();
         this.score += 10;
         this.scoreText.setText('Score: ' + this.score);
 
@@ -47,6 +49,8 @@ export default class FgScene extends Phaser.Scene {
 
       //sounds
       this.load.audio('jump', 'assets/audio/jump.wav');
+      this.load.audio('collect', 'assets/audio/collect.wav');
+      this.load.audio('death', 'assets/audio/death.wav');
     }
 
     create () {
@@ -107,6 +111,8 @@ export default class FgScene extends Phaser.Scene {
 
       //sounds
       this.jumpSound = this.sound.add('jump');
+      this.collectSound = this.sound.add('collect');
+      this.deathSound = this.sound.add('death');
 
       //scoreText
       this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
