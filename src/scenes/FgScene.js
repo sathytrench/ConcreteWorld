@@ -45,7 +45,8 @@ export default class FgScene extends Phaser.Scene {
       this.load.image('enemy', 'assets/sprites/enemy.png');
       this.load.spritesheet('dude', 'assets/spritesheets/dude.png', { frameWidth: 32, frameHeight: 48 });
 
-      //sounds?
+      //sounds
+      this.load.audio('jump', 'assets/audio/jump.wav');
     }
 
     create () {
@@ -104,6 +105,9 @@ export default class FgScene extends Phaser.Scene {
 
       this.physics.add.overlap(this.player, this.flowerGroup, this.collectFlower, null, this);
 
+      //sounds
+      this.jumpSound = this.sound.add('jump');
+
       //scoreText
       this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
 
@@ -112,7 +116,7 @@ export default class FgScene extends Phaser.Scene {
     }
 
     update () {
-      this.player.update(this.cursors);
+      this.player.update(this.cursors, this.jumpSound);
     }
   }
 
