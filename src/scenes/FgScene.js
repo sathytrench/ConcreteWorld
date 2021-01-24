@@ -45,7 +45,7 @@ export default class FgScene extends Phaser.Scene {
       this.load.image('ground', 'assets/sprites/road.png');
       this.load.image('flower', 'assets/sprites/flower.png');
       this.load.image('enemy', 'assets/sprites/enemy.png');
-      this.load.spritesheet('dude', 'assets/spritesheets/dude.png', { frameWidth: 32, frameHeight: 48 });
+      this.load.spritesheet('lady', 'assets/spritesheets/lady.png', { frameWidth: 32, frameHeight: 32 });
 
       //sounds
       this.load.audio('jump', 'assets/audio/jump.wav');
@@ -55,26 +55,26 @@ export default class FgScene extends Phaser.Scene {
 
     create () {
       //player
-      this.player = new Player(this, 100, 450, 'dude');
+      this.player = new Player(this, 100, 450, 'lady').setScale(1.5);
       this.player.setBounce(0.2);
       this.player.setCollideWorldBounds(true);
 
       this.anims.create({
           key: 'left',
-          frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+          frames: this.anims.generateFrameNumbers('lady', { start: 0, end: 3 }),
           frameRate: 10,
           repeat: -1
       });
   
       this.anims.create({
           key: 'turn',
-          frames: [ { key: 'dude', frame: 4 } ],
+          frames: [ { key: 'lady', frame: 4 } ],
           frameRate: 20
       });
   
       this.anims.create({
           key: 'right',
-          frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+          frames: this.anims.generateFrameNumbers('lady', { start: 5, end: 8 }),
           frameRate: 10,
           repeat: -1
       });
@@ -115,7 +115,7 @@ export default class FgScene extends Phaser.Scene {
       this.deathSound = this.sound.add('death');
 
       //scoreText
-      this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
+      this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#FFB6C1', backgroundColor: 'black' });
 
       //KEYBOARD MANAGER
       this.cursors = this.input.keyboard.createCursorKeys();
