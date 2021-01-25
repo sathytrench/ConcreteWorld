@@ -4,6 +4,7 @@ import 'phaser';
 import config from './config/config';
 import Scene1 from './scenes/Scene1';
 import StartScene from './scenes/StartScene';
+import GameOver from './scenes/GameOver';
 
 class Game extends Phaser.Game {
     constructor() {
@@ -11,6 +12,7 @@ class Game extends Phaser.Game {
   
       this.scene.add('StartScene', StartScene);
       this.scene.add('Scene1', Scene1);
+      this.scene.add('GameOver', GameOver);
       
       this.scene.start('StartScene');
     }

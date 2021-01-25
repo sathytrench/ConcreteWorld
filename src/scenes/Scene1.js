@@ -153,6 +153,10 @@ export default class Scene1 extends Phaser.Scene {
     update () {
       this.player.update(this.cursors, this.jumpSound);
 
+      if (this.gameOver) {
+        this.scene.start('GameOver', {score: this.score});
+      }
+
       // if (this.score > 30) {
       //   this.sound.get('music').stop();
       //   this.scene.start('StartScene');

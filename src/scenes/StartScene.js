@@ -3,16 +3,7 @@ import 'phaser';
 export default class StartScene extends Phaser.Scene {
     constructor() {
       super('StartScene');
-      this.intro = 
-      `Hello, player! 
-
-    Another grey day in Concrete World. 
-
-    Collect the flowers! 
-      
-    Watch out for creatures!
-    
-    Press SPACE to begin...`;
+      this.intro = `Hello, player!\n\nAnother grey day in Concrete World.\n\nCollect the flowers!\n\nWatch out for creatures!\n\nPress SPACE to begin...`;
     }
     
     preload() {
