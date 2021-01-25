@@ -6,7 +6,13 @@ export default class GameOver extends Phaser.Scene {
     constructor() {
       super('GameOver');
       this.finalScore;
+      this.restart = this.restart.bind(this);
     }
+
+    restart() {
+        window.location.reload();
+    }
+
     init(data) {
         this.finalScore = data.score;
     }
@@ -15,7 +21,6 @@ export default class GameOver extends Phaser.Scene {
         this.load.image('sign', 'assets/sprites/gameOver.png');
         this.load.spritesheet('deadLady', 'assets/spritesheets/deadLady.png', { frameWidth: 624, frameHeight: 624 });
         this.load.spritesheet('playAgain', 'assets/spritesheets/playAgain.png', { frameWidth: 432, frameHeight: 90 });        
-        
     }   
   
     create() {
@@ -35,8 +40,7 @@ export default class GameOver extends Phaser.Scene {
         })
         this.deadLady = new DeadLady(this, 400, 400, 'deadLady').setScale(0.2).play('float');
         this.playAgain = new PlayAgain(this, 400, 550, 'playAgain').play('flash');
-    }
-
-    update() {
+        this.playAgain.setInteractive();
+        this.playAgain.on('pointerdown', this.restart)
     }
   }

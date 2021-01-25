@@ -8,12 +8,4 @@ export default class PlayAgain extends Phaser.Physics.Arcade.Sprite {
     this.scene.physics.world.enable(this);
     this.body.setAllowGravity(false);
   }
-
-  updateMovement() {
-    
-  }
-
-  update() {
-    
-  }
 }
