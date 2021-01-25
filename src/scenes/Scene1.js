@@ -155,7 +155,7 @@ export default class Scene1 extends Phaser.Scene {
 
       if (this.gameOver) {
         this.time.addEvent({
-          delay: 3000,
+          delay: 2000,
           loop: false,
           callback: () => {
               this.scene.start("GameOver", {score: this.score});

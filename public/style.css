@@ -8,19 +8,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: pink dotted;
+    border: none;
     top: 0;
     height: 100vh;
     width: 100vw;
 }
 #canvas-container {
-    border: blue dotted;
+    border: none;
 }
 
 #signature {
     position: absolute;
     bottom: 0;
-    border: red dotted;
+    border: none;
     justify-self: left;
     padding: 1em;
 } 
