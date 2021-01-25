@@ -25,7 +25,7 @@ export default class StartScene extends Phaser.Scene {
 
     update() {
         if (this.cursors.space.isDown) {
-            this.scene.start('MainScene');
+            this.scene.start('Scene1');
         }
     }
   }
