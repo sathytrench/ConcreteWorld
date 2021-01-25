@@ -3,19 +3,25 @@ import Player from '../entity/Player';
 import Ground from '../entity/Ground';
 import Flower from '../entity/Flower';
 import Enemy from '../entity/Enemy';
+//import Portal from '../entity/Portal';
 
-export default class FgScene extends Phaser.Scene {
+export default class Scene1 extends Phaser.Scene {
     constructor() {
-      super('FgScene');
+      super('Scene1');
       this.score = 0;
+      this.nextLevel = false;
       this.hitEnemy = this.hitEnemy.bind(this);
       this.collectFlower = this.collectFlower.bind(this);
+      this.newLevel = this.newLevel.bind(this);
     }
+
+    //////////////////////////CLASS METHODS/////////////////////////////////////
 
     hitEnemy(player, enemy) {
       this.physics.pause();
       player.setTint(0xff0000);
       this.player.anims.play('turn');
+      this.sound.get('music').stop();
       this.deathSound.play();
       this.gameOver = true;
     }
@@ -39,21 +45,38 @@ export default class FgScene extends Phaser.Scene {
           enemy.setVelocity(Phaser.Math.Between(-200, 200), 20);
       }
     }
+
+    newLevel() {
+      this.nextLevel = true;
+    }
+
+    //////////////////////////////////PRELOAD//////////////////////////////////////////////////////////////
       
     preload () {  
+      //background
+      this.load.image('sky', 'assets/backgrounds/background3.png');
+      //background music
+      this.load.audio('music', 'assets/audio/snowWorld.mp3');
       //sprites 
       this.load.image('ground', 'assets/sprites/road.png');
       this.load.image('flower', 'assets/sprites/flower.png');
       this.load.image('enemy', 'assets/sprites/enemy.png');
+      this.load.image('portal', 'assets/sprites/portal.png');
+      //player
       this.load.spritesheet('lady', 'assets/spritesheets/lady.png', { frameWidth: 32, frameHeight: 32 });
-
-      //sounds
+      //soundfx
       this.load.audio('jump', 'assets/audio/jump.wav');
       this.load.audio('collect', 'assets/audio/collect.wav');
       this.load.audio('death', 'assets/audio/death.wav');
     }
 
+    //////////////////////////////////////////CREATE///////////////////////////////////////////////////////
+
     create () {
+      //background
+      this.add.image(400, 300, 'sky');
+      //background music
+      this.sound.add('music').setLoop(true).play();
       //player
       this.player = new Player(this, 100, 450, 'lady').setScale(1.5);
       this.player.setBounce(0.2);
@@ -100,13 +123,17 @@ export default class FgScene extends Phaser.Scene {
 
       //enemies
       this.enemy = this.physics.add.group({classType: Enemy});
-
+      
       //collisions
       this.physics.add.collider(this.player, this.groundGroup);
       this.physics.add.collider(this.flowerGroup, this.groundGroup);
       this.physics.add.collider(this.enemy, this.groundGroup);
       this.physics.add.collider(this.player, this.enemy, this.hitEnemy, null, this);
-
+      this.physics.add.collider(this.player, this.portal, function(){
+        this.scene.start('StartScene');
+        }, null, this);
+      
+      this.physics.add.overlap(this.player, this.portal, this.newLevel, null, this);
       this.physics.add.overlap(this.player, this.flowerGroup, this.collectFlower, null, this);
 
       //sounds
@@ -121,8 +148,28 @@ export default class FgScene extends Phaser.Scene {
       this.cursors = this.input.keyboard.createCursorKeys();
     }
 
+    ///////////////////////////////////////////UPDATE////////////////////////////////////////////////////
+
     update () {
       this.player.update(this.cursors, this.jumpSound);
+
+      if (this.gameOver) {
+        this.scene.start('GameOver', {score: this.score});
+      }
+
+      // if (this.score > 30) {
+      //   this.sound.get('music').stop();
+      //   this.scene.start('StartScene');
+      // }
+      //portal
+      //if (this.score >= 10) {
+        //this.portal = new Portal(this, 500, 510, 'portal');
+        //this.physics.add.overlap(this.player, this.portal, this.newLevel, null, this);
+      //}
+
+      // if (this.nextLevel) {
+      //   //this should probably happen in main scene somehow to avoid using the old background
+      //   this.scene.start('StartScene');
+      // }
     }
   }
-
