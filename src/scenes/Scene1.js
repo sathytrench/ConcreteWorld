@@ -3,7 +3,7 @@ import Player from '../entity/Player';
 import Ground from '../entity/Ground';
 import Flower from '../entity/Flower';
 import Enemy from '../entity/Enemy';
-import Portal from '../entity/Portal';
+//import Portal from '../entity/Portal';
 
 export default class Scene1 extends Phaser.Scene {
     constructor() {
@@ -21,6 +21,7 @@ export default class Scene1 extends Phaser.Scene {
       this.physics.pause();
       player.setTint(0xff0000);
       this.player.anims.play('turn');
+      this.sound.get('music').stop();
       this.deathSound.play();
       this.gameOver = true;
     }
@@ -152,9 +153,10 @@ export default class Scene1 extends Phaser.Scene {
     update () {
       this.player.update(this.cursors, this.jumpSound);
 
-      if (this.score > 30) {
-        this.scene.start('StartScene');
-      }
+      // if (this.score > 30) {
+      //   this.sound.get('music').stop();
+      //   this.scene.start('StartScene');
+      // }
       //portal
       //if (this.score >= 10) {
         //this.portal = new Portal(this, 500, 510, 'portal');
