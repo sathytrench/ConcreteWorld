@@ -9,8 +9,7 @@ export default class GameOver extends Phaser.Scene {
       this.restart = this.restart.bind(this);
     }
 
-    async restart() {
-        await this.scene.destroy();
+    restart() {
         window.location.reload();
     }
 
