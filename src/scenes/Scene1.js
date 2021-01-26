@@ -167,6 +167,7 @@ export default class Scene1 extends Phaser.Scene {
       //   this.scene.start('StartScene');
       // }
       //portal
+      //create inactive portal, then turn it on 
       //if (this.score >= 10) {
         //this.portal = new Portal(this, 500, 510, 'portal');
         //this.physics.add.overlap(this.player, this.portal, this.newLevel, null, this);
