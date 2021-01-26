@@ -1,1 +1,1 @@
-worker: webpack -p
+web: webpack -p $PORT
