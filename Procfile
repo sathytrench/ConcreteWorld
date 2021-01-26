@@ -1,1 +1,1 @@
-web: webpack -p
+worker: webpack -p
