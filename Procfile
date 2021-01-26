@@ -1,1 +1,1 @@
-web: webpack -p $PORT
+web: webpack -p 
