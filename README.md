@@ -1,9 +1,16 @@
 # Concrete World 
 
-A strange little game
+A strange little game.
 
-Play the deployed version here: (heroku link)
+Background drawn & player sprite created on Piskel by me, stock pixel flowers stolen from the internet, Gordo the spiky enemy stolen from Kirby, music stolen (with admiration) from Kikiyama's *YUME NIKKI*. 
 
-1. 🍴 Fork this repo to your own GitHub account (if you haven't done so already)
-2. 🐑 After cloning to your local machine, install the dependencies: `npm install`
-3. 🚀 Start it up! `npm start` will start a server running at http://localhost:8080. Head on over there in your browser, and navigate to the 'public/' directory, which is where the Phaser application is served.
+Play the deployed version here: https://concrete-world.herokuapp.com/
+
+To run locally: 
+1. fork
+2. clone & `npm install`
+3. windows: `npm run build-client-watch`, then `npm run start-server`
+4. mac/linux: `npm run start-dev`   
+5. find the game at http://localhost:8080. 
+
+:3
