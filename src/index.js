@@ -1,6 +1,6 @@
 /** @type {import("../typings/phaser")} */
 
-import 'phaser';
+import Phaser from 'phaser';
 import config from './config/config';
 import Scene1 from './scenes/Scene1';
 import StartScene from './scenes/StartScene';
