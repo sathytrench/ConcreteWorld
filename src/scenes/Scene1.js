@@ -56,7 +56,7 @@ export default class Scene1 extends Phaser.Scene {
       //background
       this.load.image('sky', 'assets/backgrounds/background3.png');
       //background music
-      this.load.audio('music', 'assets/audio/snowWorld.mp3');
+      this.load.audio('music', 'assets/audio/concreteworld_3.mp3');
       //sprites 
       this.load.image('ground', 'assets/sprites/road.png');
       this.load.image('flower', 'assets/sprites/flower.png');
@@ -137,9 +137,9 @@ export default class Scene1 extends Phaser.Scene {
       this.physics.add.overlap(this.player, this.flowerGroup, this.collectFlower, null, this);
 
       //sounds
-      this.jumpSound = this.sound.add('jump');
-      this.collectSound = this.sound.add('collect');
-      this.deathSound = this.sound.add('death');
+      this.jumpSound = this.sound.add('jump', {volume: 0.2});
+      this.collectSound = this.sound.add('collect', {volume: 0.2});
+      this.deathSound = this.sound.add('death', {volume: 0.2});
 
       //scoreText
       this.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#FFB6C1', backgroundColor: 'black' });
