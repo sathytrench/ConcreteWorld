@@ -17,10 +17,17 @@ body {
     border: none;
 }
 
-#signature {
+#signature, #question {
     position: absolute;
     bottom: 0;
     border: none;
-    justify-self: left;
     padding: 1em;
 } 
+
+#signature {
+    left: 0;
+}
+
+#question {
+    right: 0;
+}
