@@ -17,17 +17,21 @@ body {
     border: none;
 }
 
-#signature, #question {
+#signature {
     position: absolute;
     bottom: 0;
+    left: 0;
     border: none;
     padding: 1em;
 } 
 
-#signature {
-    left: 0;
+#links {
+    bottom: 0;
+    padding: 1em;
+    position: absolute;
+    right: 0;
 }
 
-#question {
-    right: 0;
+#question, #mishou {
+    padding: 0.5em;
 }
