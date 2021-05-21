@@ -15,4 +15,7 @@ To run locally:
 4. mac/linux: `npm run start-dev`   
 5. find the game at http://localhost:8080. 
 
+A special thank you to [Mishou Magazine] (https://www.mishoumagazine.com/) for showcasing this game on 
+their website. I thoroughly encourage you to explore the freaky little world they're building!
+
 :3
