@@ -17,6 +17,7 @@ script:
 - npm run build-client
 before_deploy:
 - rm -rf node_modules
+- rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
 deploy:
   skip_cleanup: true
   provider: heroku
