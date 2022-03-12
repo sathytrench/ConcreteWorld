@@ -1,5 +1,5 @@
 {
-  "name": "ConcreteWorld",
+  "name": "concrete-world",
   "version": "1.0.0",
   "description": "First game from scratch",
   "main": "src/index.js",
