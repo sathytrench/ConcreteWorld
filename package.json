@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "First game from scratch",
   "engines": {
-    "node": "12.x"
+    "node": "12.x",
+    "npm": "8.x"
   },
   "main": "src/index.js",
   "scripts": {
