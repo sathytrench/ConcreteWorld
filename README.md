@@ -4,7 +4,7 @@ A strange little game.
 
 Game made with Phaser 3 (I highly recommend this tutorial: https://phaser.io/tutorials/making-your-first-phaser-3-game), pixel art created with https://www.piskelapp.com/. 
 
-Background art drawn & sprites created by me, with background music by the talented Anna Cataldo. 
+Background art drawn & sprites created by me, with background music by the talented [Anna Cataldo](https://www.a-nna.com/). 
 
 Play the deployed version here: https://concrete-world.netlify.app
 
