@@ -6,7 +6,7 @@ Game made with Phaser 3 (I highly recommend this tutorial: https://phaser.io/tut
 
 Background art drawn & sprites created by me, with background music by the talented Anna Cataldo. 
 
-Play the deployed version here: https://concrete-world.herokuapp.com/
+Play the deployed version here: https://concrete-world.netlify.app
 
 To run locally: 
 1. fork
